@@ -2311,10 +2311,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
-      disabled: [{
+      disabled: {
         start: new Date(),
         end: new Date()
-      }],
+      },
       scheduleHead: [{
         text: "DATE",
         align: "center",

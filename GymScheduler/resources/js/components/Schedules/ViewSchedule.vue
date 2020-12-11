@@ -90,7 +90,7 @@
 
       data: function() {
         return {
-          disabled:[{ start: new Date(), end: new Date()}],
+          disabled:{ start: new Date(), end: new Date()},
           scheduleHead:[
             { text: "DATE", align: "center", value: "date" },
             { text: "RENTER", align: "center",value: "renter" },
