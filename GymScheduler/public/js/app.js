@@ -2301,6 +2301,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ScheduleView',
@@ -2310,6 +2311,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
+      disabled: [{
+        start: new Date(),
+        end: new Date()
+      }],
       scheduleHead: [{
         text: "DATE",
         align: "center",
@@ -39226,12 +39231,7 @@ var render = function() {
                               },
                               on: { click: _vm.prev }
                             },
-                            [
-                              _c("v-icon", { attrs: { small: "" } }, [
-                                _vm._v("mdi-chevron-left")
-                              ])
-                            ],
-                            1
+                            [_c("p", [_vm._v("prev")])]
                           ),
                           _vm._v(" "),
                           _c(
@@ -39245,12 +39245,7 @@ var render = function() {
                               },
                               on: { click: _vm.next }
                             },
-                            [
-                              _c("v-icon", { attrs: { small: "" } }, [
-                                _vm._v("mdi-chevron-right")
-                              ])
-                            ],
-                            1
+                            [_c("p", [_vm._v("next")])]
                           ),
                           _vm._v(" "),
                           _c("v-spacer"),
@@ -39392,7 +39387,8 @@ var render = function() {
                           "eventOverlap:": "",
                           false: "",
                           "event-color": _vm.getEventColor,
-                          "event-text-color": _vm.getProperColor
+                          "event-text-color": _vm.getProperColor,
+                          "disabled-dates": _vm.disabled
                         },
                         on: {
                           "click:event": _vm.showEvent,

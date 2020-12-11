@@ -21,10 +21,10 @@
               <v-toolbar flat>
                 <v-btn outlined class="mr-4" color="grey darken-2" @click="setToday">Today</v-btn>
                 <v-btn fab text small color="grey darken-2" @click="prev">
-                  <v-icon small>mdi-chevron-left</v-icon>
+                  <p>prev</p>
                 </v-btn>
                 <v-btn fab text small color="grey darken-2" @click="next">
-                  <v-icon small>mdi-chevron-right</v-icon>
+                  <p >next</p>
                 </v-btn>
 
                 <!-- <v-toolbar-title v-if="$refs.calendar">{{ $refs.calendar.title }}</v-toolbar-title> -->
@@ -66,6 +66,7 @@
                 eventOverlap: false
                 :event-color="getEventColor"
                 :event-text-color="getProperColor"
+                :disabled-dates="disabled"
                 @click:more="viewDay"
                 @click:date="viewDay"
               >
@@ -86,8 +87,10 @@
         this.schedule = this.$store.getters.schedules;
         // this.events = this.schedule;
       },
+
       data: function() {
         return {
+          disabled:[{ start: new Date(), end: new Date()}],
           scheduleHead:[
             { text: "DATE", align: "center", value: "date" },
             { text: "RENTER", align: "center",value: "renter" },
